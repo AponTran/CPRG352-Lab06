@@ -28,8 +28,8 @@
         
         <form action="" method="POST">
             <ul>
-                <c:forEach items="${items}" var="item">
-                    <li><input type="radio" name="item" value="${item}">${item}</li>
+                <c:forEach items="${itemAdded}" var="item">
+                    <li><input type="radio" name="items" value="${item}">${item}</li>
                 </c:forEach>
             </ul>
             <input type="submit" value="Delete">
