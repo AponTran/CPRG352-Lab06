@@ -43,7 +43,7 @@ public class ShoppingListServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        // Set section
         HttpSession session = request.getSession();
         String actionValue = request.getParameter("action");
         
@@ -59,13 +59,13 @@ public class ShoppingListServlet extends HttpServlet {
                 return;
             }
         }
+        //add funtcion
         else if (actionValue.equals("add")) {
             
             ArrayList<String> itemList = (ArrayList<String>) session.getAttribute("itemAdded");
             if (itemList == null) {
                 itemList = new ArrayList<>();
             }
-            
             if (!request.getParameter("itemadded").isEmpty()) {
                 String item = request.getParameter("itemadded");
                 itemList.add(item);
@@ -74,6 +74,7 @@ public class ShoppingListServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
             return;
         }
+        // delete function
         else if (actionValue.equals("delete")) {
             ArrayList<String> itemList = (ArrayList<String>) session.getAttribute("itemAdded");
             String deleteItem = request.getParameter("items");
